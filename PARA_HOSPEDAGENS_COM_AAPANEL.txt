@@ -1,0 +1,30 @@
+
+APENAS PARA HOSPEDAGENS COM AAPANEL
+
+⚠️ ATENÇÃO: Este procedimento é necessário apenas para hospedagens que utilizam o aaPanel.
+
+Após realizar todos os passos descritos no arquivo instalacao.txt, se ao tentar criar um cadastro de usuário o processo não for concluído (ou seja, o cadastro não finaliza), isso acontece porque é necessário criar um arquivo chamado .htaccess com o seguinte conteúdo:
+
+RewriteEngine On
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%1]
+
+Além disso, se o cadastro for concluído normalmente, mas ao adicionar saldo o valor for processado no gateway de pagamento (por exemplo, o valor saiu da conta ou foi aprovado no sistema), porém não aparecer no site para ser jogado, o motivo também é a ausência deste mesmo arquivo .htaccess.
+
+✅ Resumindo:
+Para o sistema funcionar corretamente em hospedagens com aaPanel (tanto para cadastro quanto para atualização de saldo), crie o arquivo .htaccess na raiz do projeto com o seguinte código:
+
+RewriteEngine On
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%1]
+
+
+⚠️ IMPORTANTE SOBRE UPLOADS NO PAINEL ADMIN ou MAIORES GANHOS DE HOJE carregado pela metade:
+
+Caso os uploads de imagens (LOGO, FAVICON, SLIDER) no painel administrativo não carreguem corretamente ou carrossel (MAIORES GANHOS DE HOJE), é necessário ativar no seu aaPanel as funções PHP:
+
+- fileinfo
+- imap
+- mbstring
+
+Essas funções geralmente podem ser ativadas no painel AAPANEL - App Store - php 8.3 - Install extensions

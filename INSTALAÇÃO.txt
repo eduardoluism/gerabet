@@ -1,0 +1,111 @@
+INSTRUÇÕES DE INSTALAÇÃO - SCRIPT GERABET
+
+1. CRIAÇÃO DO BANCO DE DADOS
+
+Antes de instalar o script, é necessário preparar o banco de dados MySQL na sua hospedagem. Siga os passos abaixo:
+
+a) Acesse o painel da sua hospedagem (cPanel ou semelhante).
+
+b) Localize a opção "Banco de Dados MySQL" ou "MySQL Databases".
+
+c) Crie um novo banco de dados. Por exemplo:
+   Nome do banco: [NOME QUE DESEJA]
+
+d) Crie um novo usuário MySQL. Por exemplo:
+   Nome do usuário: [NOME QUE DESEJA]
+   Senha: [defina uma senha segura]
+
+e) Após criar o usuário, associe esse usuário ao banco de dados criado e conceda **todas as permissões** (ALL PRIVILEGES).
+----------------------------------------------------------------------------------------------
+
+2. IMPORTAÇÃO DO BANCO DE DADOS
+
+a) No mesmo painel da hospedagem, acesse o **phpMyAdmin**.
+
+b) Selecione o banco de dados que você acabou de criar (ex: MEU_BANCO_DE_DADOS) na lista lateral.
+
+c) Clique na aba **Importar**.
+
+d) No campo "Arquivo a ser importado", clique em "Escolher arquivo" (ou "Browse") e selecione o arquivo chamado:
+   
+   **megagr80_projeto.sql**
+
+   Este arquivo está localizado na pasta principal do script Gerabet.
+
+e) Após selecionar o arquivo, clique em **Executar** (ou "Go") para iniciar a importação.
+
+f) Aguarde até que o processo termine. Se tudo correr bem, o banco de dados estará pronto para uso.
+-----------------------------------------------------------------------------------------------
+
+
+3. CONFIGURAÇÃO DO ARQUIVO DE CONEXÃO COM O BANCO DE DADOS
+
+Após importar o banco de dados, será necessário configurar a conexão com o MySQL.
+
+a) Na pasta principal do script, acesse a pasta:
+
+   includes/
+
+b) Localize o arquivo:
+
+   db.php
+
+c) Abra o arquivo db.php em um editor de texto (como VSCode, Sublime Text , Bloco de Notas ou outro de sua preferência).
+
+d) Localize as seguintes linhas:
+
+   $dbname = 'NOMEDOBANCOAQUI';
+   $user = 'NOMEDOUSUARIOAQUI';
+   $pass = 'SENHAAQUI';
+
+e) Substitua os valores conforme os dados criados anteriormente:
+
+   Exemplo:
+
+   $dbname = 'megagr80_projeto';
+   $user = 'megagr80_user';
+   $pass = 'suasenhasegura';
+
+f) Após preencher corretamente, salve o arquivo.
+
+--------------------------------------------------------------------------------------------------------
+
+4. ENVIO DOS ARQUIVOS PARA O SERVIDOR
+
+a) Envie **todos os arquivos e pastas do script** para o diretório:
+
+   public_html
+
+do seu servidor, utilizando um cliente FTP (ex: FileZilla) ou o gerenciador de arquivos do seu painel de hospedagem.
+
+5. ACESSO AO SISTEMA
+
+Após completar todos os passos acima, o script estará pronto para uso.
+
+Para acessar o painel administrativo, abra o navegador e digite:
+
+   https://seusite.com/painel
+
+Dados de acesso padrão:
+
+   E-mail: adm@adm.com.br
+   Senha: 12345678
+
+⚠️ IMPORTANTE: Por motivos de segurança, altere a senha do administrador assim que realizar o primeiro login no painel.
+
+===========================================================
+INFORMAÇÃO IMPORTANTE:
+
+Este script é gratuito e distribuído pelo gateway de pagamentos **GeraPix.digital**.
+
+Caso ainda não possua uma conta, não se esqueça de criar a sua acessando:
+
+   https://gerapix.digital
+
+Abra sua conta e aproveite todas as facilidades que nosso gateway oferece!
+
+===========================================================
+
+
+SCRIPT GERABET - INSTALAÇÃO CONCLUÍDA!
+
